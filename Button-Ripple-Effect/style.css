@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+}
+
+#button {
+    padding: 20px 40px;
+    font-family: sans-serif;
+    background-color: pink;
+    border: 1px solid pink;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+
+#button::before {
+    content: '';
+    background-color: orangered;
+    height: 0px;
+    width: 0px;
+    position: absolute;
+    left: var(--xPos);  /*pseudo elements are not part of DOM so we cannot change them with javascript but by using variables we can change them */
+    top: var(--yPos);
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    transition: height 0.5s, width 0.5s;
+}
+
+#button span {
+    position: relative;
+    z-index: 1;
+}
+
+#button:hover::before {
+    height: 300px;
+    width: 300px;
+
+}
